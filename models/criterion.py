@@ -354,21 +354,13 @@ class SetCriterion(nn.Module):
                     losses.update(l_dict)
 
                 if 'dn_meta' in outputs:
-                    if loss == 'scale_map':
-                        continue
                     aux_outputs_known = output_known['aux_outputs'][i]
                     l_dict={}
                     for loss in self.losses:
+                        if loss == 'scale_map':
+                            continue
                         l_dict.update(self.get_loss(loss, aux_outputs_known, targets, dn_pos_idx, num_valid_instances[loss]*scalar, is_dn=True))
                     l_dict = {k + f'_dn.{i}': v for k, v in l_dict.items()}
                     losses.update(l_dict)
-
-        # if 'scale_map' in outputs:
-        #     enc_outputs = outputs['enc_outputs']
-        #     indices = self.matcher.forward_enc(enc_outputs, targets)
-        #     for loss in ['confs_enc', 'boxes_enc']:
-        #         l_dict = self.get_loss(loss, enc_outputs, targets, indices, num_valid_instances[loss.replace('_enc','')])
-        #         l_dict = {k + f'_enc': v for k, v in l_dict.items()}
-        #         losses.update(l_dict)
 
         return losses
