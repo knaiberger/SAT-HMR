@@ -7,3 +7,4 @@ tmps/
 **/__pycache__/
 datasets_visualization/
 demo_results/
+test_output/

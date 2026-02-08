@@ -3,10 +3,68 @@ model: default
 pretrain: True
 pretrain_path: './weights/sat_hmr/sat_644.pth'
 
-input_dir: './demo'
-output_dir: './demo_results'
+input_dir: '../../data/peoplesnapshot_arah-format/people_snapshot_public/sat-hmr/male-4-casual/image/'
+output_dir: '../../data/peoplesnapshot_arah-format/people_snapshot_public/sat-hmr/male-4-casual'
 conf_thresh: [0.3]
 infer_batch_size: 1
-infer_num_workers: 8
+infer_num_workers: 1
 distributed_infer: True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
