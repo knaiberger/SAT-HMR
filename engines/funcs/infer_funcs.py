@@ -112,8 +112,7 @@ def inference(model, infer_dataloader, conf_thresh, results_save_path = None,
             pred_boxes = box_cxcywh_to_xyxy(pred_boxes) * model.input_size
             pred_box_img = vis_boxes(ori_img.copy(), pred_boxes, color = (255,0,255))[:img_size[0],:img_size[1]]
 
-            cv2.imwrite(os.path.join(results_save_path,"overlay", f'{img_name}.png'), np.vstack([np.hstack([pred_box_img, pred_mesh_img]),
-                                                                                        np.hstack([pred_scale_img, sat_img])]))
+            cv2.imwrite(os.path.join(results_save_path,"overlay", f'{img_name}.png'), pred_mesh_img)
 
 
         progress_bar.update(1)
