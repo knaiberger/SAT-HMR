@@ -3,12 +3,13 @@ model: default
 pretrain: True
 pretrain_path: './weights/sat_hmr/sat_644.pth'
 
-input_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_10_rev/image/'
-output_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_10_rev'
+input_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_10/image/'
+output_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_10'
 conf_thresh: [0.3]
 infer_batch_size: 1
 infer_num_workers: 1
 distributed_infer: True
+
 
 
 
