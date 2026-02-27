@@ -3,12 +3,14 @@ model: default
 pretrain: True
 pretrain_path: './weights/sat_hmr/sat_644.pth'
 
-input_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_7/image/'
-output_dir: '../../data/iPER_1024_video_release/sat-hmr/s_001_7'
+input_dir: '../../data/peoplesnapshot_arah-format/people_snapshot_public/female-3-casual/image_undist/'
+output_dir: '../../data/peoplesnapshot_arah-format/people_snapshot_public/female-3-casual/sat-hmr'
 conf_thresh: [0.3]
 infer_batch_size: 1
 infer_num_workers: 1
 distributed_infer: True
+
+
 
 
 

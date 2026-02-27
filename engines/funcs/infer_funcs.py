@@ -30,7 +30,7 @@ def inference(model, infer_dataloader, conf_thresh, results_save_path = None,
 
     progress_bar = tqdm(total=len(infer_dataloader), disable=not accelerator.is_local_main_process)
     progress_bar.set_description('inference')
-    
+    all_time = 0
     for itr, (samples, targets) in enumerate(infer_dataloader):
         start = time.time()
         samples=[sample.to(device = cur_device, non_blocking = True) for sample in samples]
@@ -39,7 +39,7 @@ def inference(model, infer_dataloader, conf_thresh, results_save_path = None,
         print(outputs.keys())
         end = time.time()
         print("Time: "+str(end-start))
-        
+        all_time = all_time + (end-start)
         bs = len(targets)
         print(bs)
         for idx in range(bs):
@@ -116,5 +116,5 @@ def inference(model, infer_dataloader, conf_thresh, results_save_path = None,
 
 
         progress_bar.update(1)
-    
+    print("Time: "+str(all_time)) 
 
